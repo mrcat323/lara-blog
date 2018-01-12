@@ -44,7 +44,6 @@
                     <?php else: ?>
                         <p>Nein posts Herr</p>
                     <?php endif; ?>
-                    You are logged in!
                 </div>
             </div>
         </div>

@@ -42,7 +42,6 @@
                     @else
                         <p>Nein posts Herr</p>
                     @endif
-                    You are logged in!
                 </div>
             </div>
         </div>

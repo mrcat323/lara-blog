@@ -7,6 +7,10 @@ use App\Post;
 
 class PostsController extends Controller
 {
+
+    public function __construct() {
+        return $this->middleware('auth',['except'=>['index','show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts=Post::orderBy('id','desc')->paginate(5);
-        return view('posts.index',['title'=>'Posts'])->with('posts',$posts);
+        return view('posts.index',['title'=>'Posts','posts'=>$posts]);
     }
 
     /**
@@ -70,6 +74,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post=Post::find($id);
+        if(auth()->user()->id !==$post->user_id) {
+            return redirect('/posts')->with('error','Permission Denied!');
+        }
         return view('posts.edit',['title'=>'Edit Post'])->with('post',$post);
     }
 
@@ -104,6 +111,9 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post=Post::find($id);
+        if(auth()->user()->id !==$post->user_id) {
+            return redirect('/posts')->with('error','Permission Denied!');
+        }
         $post->delete();
         return redirect('/posts')->with('success','Post successfully removed!');
     }
