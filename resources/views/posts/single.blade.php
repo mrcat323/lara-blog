@@ -13,6 +13,7 @@
 		@if(sizeof($post)>0)
 		<small>{{$post->created_at}} created by <b>{{$post->user->name}}</b></small>
 		<h1>{{$post->title}}</h1>
+		<img style="width: 100%" src="/storage/cover_images/{{$post->cover_img}}" alt="{{$post->title}}">
 		<p>{!!$post->text!!}</p>
 		@endif
 	</div>
