@@ -2,7 +2,7 @@
 	<div class="jumbotron">
 		<a href="/posts" class="btn btn-default">Go Back</a>
 		<h1>Create post</h1>
-		<?php echo Form::open(['action' => 'PostsController@store','method' => 'POST']); ?>
+		<?php echo Form::open(['action' => 'PostsController@store','method' => 'POST','enctype'=>'multipart/form-data']); ?>
 
 		<div class="form-group">
 			<?php echo e(Form::label('title','Title')); ?>
@@ -14,6 +14,10 @@
 			<?php echo e(Form::label('text','Text')); ?>
 
 			<?php echo e(Form::textarea('text','',['id'=>'article-ckeditor','class' => 'form-control','placeholder' => 'Body text'])); ?>
+
+		</div>
+		<div class="form-group">
+			<?php echo e(Form::file('cover_img')); ?>
 
 		</div>
 		<?php echo e(Form::submit('Add',['class' => 'btn btn-primary'])); ?>

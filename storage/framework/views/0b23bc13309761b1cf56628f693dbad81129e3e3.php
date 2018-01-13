@@ -16,6 +16,7 @@
 		<?php if(sizeof($post)>0): ?>
 		<small><?php echo e($post->created_at); ?> created by <b><?php echo e($post->user->name); ?></b></small>
 		<h1><?php echo e($post->title); ?></h1>
+		<img style="width: 100%" src="/storage/cover_images/<?php echo e($post->cover_img); ?>" alt="<?php echo e($post->title); ?>">
 		<p><?php echo $post->text; ?></p>
 		<?php endif; ?>
 	</div>

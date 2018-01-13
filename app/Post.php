@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table='posts';
-    public $timstamps=true;
+    public $timestamps=true;
 
     public function user() {
     	return $this->belongsTo('App\User');
