@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/','HomeController@index');
+Route::get('/','AboutController@index');
 Route::resource('posts', 'PostsController');
-Route::get('/about','HomeController@about');
+Route::get('/about','AboutController@about');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

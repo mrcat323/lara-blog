@@ -1,8 +1,7 @@
 <?php $__env->startSection('content'); ?>
 	<div class="jumbotron">
 		<a href="/posts" class="btn btn-default">Go Back</a>
-		<?php if(sizeof($post)>0): ?>
-		<small><?php echo e($post->created_at); ?></small>
+		<?php if(Auth::user()): ?>
 		<a href="/posts/<?php echo e($post->id); ?>/edit" class="btn btn-success">Edit</a>
 		<?php echo Form::open(['action'=>['PostsController@destroy',$post->id],'method'=>'POST','class'=>'pull-right']); ?>
 
@@ -12,6 +11,10 @@
 
 		<?php echo Form::close(); ?>
 
+		<?php endif; ?>
+		<br>
+		<?php if(sizeof($post)>0): ?>
+		<small><?php echo e($post->created_at); ?> created by <b><?php echo e($post->user->name); ?></b></small>
 		<h1><?php echo e($post->title); ?></h1>
 		<p><?php echo $post->text; ?></p>
 		<?php endif; ?>

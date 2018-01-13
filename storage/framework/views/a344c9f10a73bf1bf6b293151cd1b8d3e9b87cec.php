@@ -3,7 +3,7 @@
 		<?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			<div class="jumbotron">
 				<h3><a href="/posts/<?php echo e($post->id); ?>"><?php echo e($post->title); ?></a></h3>
-				<small><?php echo e($post->created_at); ?></small>
+				<small><?php echo e($post->created_at); ?> created by <b><?php echo e($post->user->name); ?></b></small>
 			</div>
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 		<div class="col-sm-4 col-md-5 col-md-3-offset">

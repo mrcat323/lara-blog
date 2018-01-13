@@ -74,6 +74,7 @@ class ComposerStaticInite95f7c9303fe8b19e27a5e68d6758521
         'M' => 
         array (
             'Monolog\\' => 8,
+            'MaddHatter\\ViewGenerator\\' => 25,
         ),
         'L' => 
         array (
@@ -227,6 +228,10 @@ class ComposerStaticInite95f7c9303fe8b19e27a5e68d6758521
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'MaddHatter\\ViewGenerator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maddhatter/laravel-view-generator/src',
+        ),
         'League\\Flysystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
@@ -327,6 +332,7 @@ class ComposerStaticInite95f7c9303fe8b19e27a5e68d6758521
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\AboutController' => __DIR__ . '/../..' . '/app/Http/Controllers/AboutController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -1802,6 +1808,8 @@ class ComposerStaticInite95f7c9303fe8b19e27a5e68d6758521
         'League\\Flysystem\\Util\\ContentListingFormatter' => __DIR__ . '/..' . '/league/flysystem/src/Util/ContentListingFormatter.php',
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
+        'MaddHatter\\ViewGenerator\\MakeViewCommand' => __DIR__ . '/..' . '/maddhatter/laravel-view-generator/src/MakeViewCommand.php',
+        'MaddHatter\\ViewGenerator\\ServiceProvider' => __DIR__ . '/..' . '/maddhatter/laravel-view-generator/src/ServiceProvider.php',
         'Mockery' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'Mockery\\Adapter\\Phpunit\\MockeryPHPUnitIntegration' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php',
         'Mockery\\Adapter\\Phpunit\\MockeryTestCase' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php',
