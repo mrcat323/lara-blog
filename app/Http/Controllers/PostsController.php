@@ -7,6 +7,10 @@ use App\Post;
 
 class PostsController extends Controller
 {
+
+    public function __construct() {
+        return $this->middleware('auth',['except'=>['index','show']]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts=Post::orderBy('id','desc')->paginate(5);
-        return view('posts.index')->with('posts',$posts);
+        return view('posts.index',['title'=>'Posts','posts'=>$posts]);
     }
 
     /**
@@ -25,7 +29,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create',['title'=>'Create Post']);
     }
 
     /**
@@ -43,6 +47,7 @@ class PostsController extends Controller
         $post=new Post();
         $post->title=$request->title;
         $post->text=$request->text;
+        $post->user_id=auth()->user()->id;
         $post->save();
 
         return redirect('/posts')->with('success','Post Created!');
@@ -57,7 +62,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post=Post::find($id);
-        return view('posts.single')->with('post',$post);
+        return view('posts.single',['title'=>$post->title])->with('post',$post);
     }
 
     /**
@@ -69,7 +74,10 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post=Post::find($id);
-        return view('posts.edit')->with('post',$post);
+        if(auth()->user()->id !==$post->user_id) {
+            return redirect('/posts')->with('error','Permission Denied!');
+        }
+        return view('posts.edit',['title'=>'Edit Post'])->with('post',$post);
     }
 
     /**
@@ -103,6 +111,9 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post=Post::find($id);
+        if(auth()->user()->id !==$post->user_id) {
+            return redirect('/posts')->with('error','Permission Denied!');
+        }
         $post->delete();
         return redirect('/posts')->with('success','Post successfully removed!');
     }

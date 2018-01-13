@@ -3,16 +3,32 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
-class HomeController extends Controller {
+class HomeController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-	# Home Page
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        # Grab the user id
+        $id=auth()->user()->id;
 
-    public function index(){return view('welcome',['title' => 'Home Page']);}
-
-    # About Page (something like portfolio)
-
-    public function about(){return view('about',['title' => 'About Us']);}
-
-
+        # Get the User by ID
+        $user=User::find($id);
+        return view('home',['title'=>'Dashboard'])->with('posts',$user->post);
+    }
 }

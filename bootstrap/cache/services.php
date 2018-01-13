@@ -32,6 +32,7 @@
     28 => 'App\\Providers\\RouteServiceProvider',
     29 => 'Collective\\Html\\HtmlServiceProvider',
     30 => 'Unisharp\\Ckeditor\\ServiceProvider',
+    31 => 'MaddHatter\\ViewGenerator\\ServiceProvider',
   ),
   'eager' => 
   array (
@@ -51,6 +52,7 @@
     13 => 'App\\Providers\\EventServiceProvider',
     14 => 'App\\Providers\\RouteServiceProvider',
     15 => 'Unisharp\\Ckeditor\\ServiceProvider',
+    16 => 'MaddHatter\\ViewGenerator\\ServiceProvider',
   ),
   'deferred' => 
   array (
