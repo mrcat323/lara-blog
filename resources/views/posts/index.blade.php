@@ -4,7 +4,7 @@
 		@foreach($posts as $post)
 			<div class="jumbotron">
 				<h3><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
-				<small>{{$post->created_at}}</small>
+				<small>{{$post->created_at}} created by <b>{{$post->user->name}}</b></small>
 			</div>
 		@endforeach
 		<div class="col-sm-4 col-md-5 col-md-3-offset">
