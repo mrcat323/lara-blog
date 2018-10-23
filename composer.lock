@@ -4,8 +4,54 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f4fa41c3aeb423a32116601caec87ca",
+    "content-hash": "095fc5f6b79c0a505dda8663c5627565",
     "packages": [
+        {
+            "name": "askedio/laravel5-profanity-filter",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Askedio/Laravel5-Profanity-Filter.git",
+                "reference": "81d49609f16b5f8e8634eef360e7ad0de8debb34"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Askedio/Laravel5-Profanity-Filter/zipball/81d49609f16b5f8e8634eef360e7ad0de8debb34",
+                "reference": "81d49609f16b5f8e8634eef360e7ad0de8debb34",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "laravel/laravel": "5.*",
+                "phpunit/phpunit": "~5.0",
+                "symfony/css-selector": "3.1.*",
+                "symfony/dom-crawler": "3.1.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Askedio\\Laravel5ProfanityFilter\\Providers\\ProfanityFilterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Askedio\\Laravel5ProfanityFilter\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "AGPL-3.0"
+            ],
+            "description": "A Vendor Package Example",
+            "keywords": [
+                "laravel"
+            ],
+            "time": "2018-03-15T15:05:26+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
