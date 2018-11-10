@@ -31,3 +31,5 @@ Route::post('/api/user/reset', '\App\Http\Controllers\Api\ResetPasswordControlle
 // auth routes
 
 Auth::routes();
+
+Route::post('/search/posts/go', 'PostsController@search')->name('search.posts');

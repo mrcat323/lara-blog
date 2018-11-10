@@ -14,7 +14,7 @@ class PostsController extends Controller
 
     public function __construct()
     {
-        return $this->middleware('auth', ['except' => ['index','show']]);
+        return $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
     }
     /**
      * Display a listing of the resource.
@@ -84,7 +84,7 @@ class PostsController extends Controller
     public function show(int $id)
     {
         $post = new Post;
-        $content = $post->find($id);
+        $content = $post->findOrFail($id);
         return view('posts.single')
                   ->with('title', $content->title)
                   ->with('post', $content);
@@ -161,5 +161,22 @@ class PostsController extends Controller
         $postToDelete->delete();
         return redirect('/posts')
                       ->with('success','Post successfully removed!');
+    }
+
+    public function search(Request $request, Post $post)
+    {
+      $query = $request->search;
+      if (!empty($query)) {
+          $query = '%' . $query . '%';
+          $posts = $post->where('title', 'like', $query)->orWhere('text', 'like', $query)->latest()->get();
+          return view('search.index')
+                    ->with('posts', $posts)
+                    ->with('query', $request->search)
+                    ->with('title', 'Searching ' . $request->search);
+        } else {
+            return view('search.error')
+                      ->with('title', 'Empty request')
+                      ->with('message', 'Your search request is empty!');
+        }
     }
 }
